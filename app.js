@@ -68,14 +68,20 @@
   });
 
   // Filtering
-  function getFiltered() {
+function getFiltered() {
     const q = searchInput.value.trim().toLowerCase();
     const cuisine = cuisineFilter.value;
     const protein = proteinFilter.value;
     const type = typeFilter.value;
 
     return recipes.filter((r) => {
-      if (cuisine !== "all" && r.cuisine !== cuisine) return false;
+      if (cuisine !== "all") {
+        if (cuisine === "Sides") {
+          if (r.type !== "side" && r.type !== "appetizer") return false;
+        } else if (r.cuisine !== cuisine) {
+          return false;
+        }
+      }
       if (protein !== "all") {
         if (protein === "veg" && r.protein !== "veg") return false;
         if (protein !== "veg" && r.protein !== protein) return false;
