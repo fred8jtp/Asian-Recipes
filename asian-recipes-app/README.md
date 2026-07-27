@@ -1,4 +1,4 @@
-# Asian Meat Kitchen
+# Asian Kitchen Delights
 
 Interactive browser-based recipe collection focused on **chicken, pork and beef** (no seafood).
 
