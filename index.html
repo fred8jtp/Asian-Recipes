@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asian Meat Kitchen – Chinese, Japanese, Thai, Korean & Vietnamese Recipes</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">🥢</span>
+        <div>
+          <h1>Asian Meat Kitchen</h1>
+          <p class="tagline">Chicken • Pork • Beef • No Seafood</p>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <button class="nav-btn active" data-view="home">Home</button>
+        <button class="nav-btn" data-view="favorites">★ Favorites</button>
+        <button class="nav-btn" data-view="about">About</button>
+        <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HOME / BROWSE VIEW -->
+    <section id="home-view" class="view active">
+      <div class="hero">
+        <h2>Explore authentic Asian recipes focused on chicken, pork &amp; beef</h2>
+        <p>Chinese • Japanese • Thai • Korean • Vietnamese + Sides &amp; Appetizers</p>
+      </div>
+
+      <div class="controls">
+        <div class="search-box">
+          <input type="search" id="search-input" placeholder="Search recipes, ingredients..." autocomplete="off" />
+        </div>
+        <div class="filters">
+          <select id="cuisine-filter">
+            <option value="all">All Cuisines</option>
+            <option value="Chinese">Chinese</option>
+            <option value="Japanese">Japanese</option>
+            <option value="Thai">Thai</option>
+            <option value="Korean">Korean</option>
+            <option value="Vietnamese">Vietnamese</option>
+            <option value="Sides">Sides &amp; Appetizers</option>
+          </select>
+          <select id="protein-filter">
+            <option value="all">All Proteins</option>
+            <option value="chicken">Chicken</option>
+            <option value="pork">Pork</option>
+            <option value="beef">Beef</option>
+            <option value="veg">Vegetarian / Sides</option>
+          </select>
+          <select id="type-filter">
+            <option value="all">All Types</option>
+            <option value="main">Main Dishes</option>
+            <option value="side">Sides</option>
+            <option value="appetizer">Appetizers</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="stats" id="result-count"></div>
+      <div class="recipe-grid" id="recipe-grid"></div>
+    </section>
+
+    <!-- FAVORITES VIEW -->
+    <section id="favorites-view" class="view">
+      <h2 class="view-title">Your Favorites</h2>
+      <div class="recipe-grid" id="favorites-grid"></div>
+      <p id="no-favorites" class="empty-msg hidden">No favorites yet. Click the ★ on any recipe to save it.</p>
+    </section>
+
+    <!-- ABOUT VIEW -->
+    <section id="about-view" class="view">
+      <div class="about-content">
+        <h2>About Asian Meat Kitchen</h2>
+        <p>A focused collection of authentic and popular Chinese, Japanese, Thai, Korean and Vietnamese recipes that use only chicken, pork or beef — no fish or seafood.</p>
+        <ul>
+          <li><strong>~25 Chinese</strong> mains + classics</li>
+          <li><strong>~9 Japanese</strong> favorites</li>
+          <li><strong>~9 Thai</strong> dishes</li>
+          <li><strong>~9 Korean</strong> recipes</li>
+          <li><strong>~9 Vietnamese</strong> specialties</li>
+          <li><strong>Large sides &amp; appetizers</strong> section</li>
+        </ul>
+        <p>Every recipe includes a full ingredient list, step-by-step directions, and practical substitution suggestions. The data is stored in a single JavaScript array so you can easily expand the collection later.</p>
+        <p>Favorites are saved in your browser (localStorage). This is a pure static site — no backend required. Host it on GitHub Pages, Netlify, Vercel, or any static host.</p>
+        <p class="note">Recipes are based on traditional methods and popular home-cook versions. Adjust spice and salt to taste.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- RECIPE DETAIL MODAL -->
+  <div id="recipe-modal" class="modal hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close">×</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>Asian Meat Kitchen • Expandable static recipe collection • Built for home cooks</p>
+  </footer>
+
+  <script src="recipes.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
